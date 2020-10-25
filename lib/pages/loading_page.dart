@@ -4,11 +4,15 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(
-          strokeWidth: 2,
-        ),
-      ),
+      body: FutureBuilder(
+          future: this.checkGpsYLocation(context),
+          builder: (context, snapshot) {
+            return Center(
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+              ),
+            );
+          }),
     );
   }
 
